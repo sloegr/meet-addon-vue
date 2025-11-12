@@ -1,18 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { meet } from '@googleworkspace/meet-addons/meet.addons'
 
-const CLOUD_PROJECT_NUMBER = '893187114358'
+console.log('Main Stage loading...')
 
-async function initializeMainStage() {
-  const session = await meet.addon.createAddonSession({
-    cloudProjectNumber: CLOUD_PROJECT_NUMBER,
-  })
+const app = createApp(App)
+app.mount('#app-mainstage')
 
-  await session.createMainStageClient()
-
-  // Mount Vue app
-  createApp(App).mount('#app')
-}
-
-initializeMainStage()
+console.log('Main Stage mounted successfully')
